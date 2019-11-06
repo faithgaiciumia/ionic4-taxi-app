@@ -1,14 +1,32 @@
 <ion-header>
+   <!-- <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name='menu'></ion-icon>      
+    </button>
+    <ion-title>Ionic 4 Taxi App</ion-title>
+  </ion-navbar>  -->
   <ion-toolbar>
+    <ion-button menuToggle>
+      <ion-icon name='menu'></ion-icon>      
+    </ion-button>
     <ion-title>
-      Ionic Blank
+      Ionic 4 Taxi App
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <div class="ion-padding">
-    The world is your oyster.
-    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
+<ion-content scroll="false" class="map-page">
+  <div class="map-wrapper">    
+    <div #map id="map"></div>
   </div>
-</ion-content>
+  <div id="address">
+    <span>{{address}}</span>
+  </div>
+    <div id="centerMarker" *ngIf="localized"></div>
+    <ion-fab left bottom>
+      <button ion-fab color="primary" (click)="goToConfirmation()"><ion-icon name="ios-call"></ion-icon></button>
+    </ion-fab>
+    <ion-fab right bottom>
+      <button ion-fab color="primary" (click)="openModal()"><ion-icon name="search"></ion-icon></button>
+    </ion-fab>
+  </ion-content>
